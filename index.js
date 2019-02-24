@@ -22,14 +22,14 @@ function startGame(){
   promptUser();
 }
 
-function promptUser() {
+function userPrompt() {
   if (counter < 9) {
       console.log(gameWord.showWord());
       inquirer.prompt ([
         {
           type: "input",
           name: "letter",
-          message: "\nPlease pick a letter and then enter"
+          message: "\nPlease pick a letter and then push enter"
         }
       ]).then(function(data) {
         answerCheck(data);
@@ -52,9 +52,17 @@ function answerCheck(data) {
       console.log("\nSorry, wrong letter, please choose another\n");
       counter++;
       console.log(((9 - counter) + "guesses remaining"));
-      promptUser();
+      userPrompt();
+    }
+    else {
+      guessRight();
     })
   }
+}
+
+function guessRight() {
+  console.log("\nCorrect guess!\n");
+  if(chooseWord.replace(/ /g,"") == (gameWord.show))
 }
 
 
