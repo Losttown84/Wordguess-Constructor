@@ -1,6 +1,5 @@
 var Word = require ("./word.js");
 var inquirer = require ("inquirer");
-var 
 
 creekList = ["DAVID ROSE", "ALEXIS ROSE", "MOIRA ROSE", "JOHNNY ROSE", "TED MULLENS", "JOCELYN SCHITT", "STEVIE BUDD", "ROLAND SCHITT", "TWYLA SANDS", "PATRICK BREWER", "RONNIE LEE"];
 var selectWord = 0;
@@ -33,7 +32,37 @@ function promptUser() {
           message: "\nPlease pick a letter and then enter"
         }
       ]).then(function(data) {
-        checkAnswer(data);
+        answerCheck(data);
       });
   }
+  else{
+    chooseWord = "";
+    gameWord = "";
+    choice = 0;
+    counter = 0;
+    startGame();
+  }
 }
+
+function answerCheck(data) {
+  if ((data.letter.length === 1) && /^[a-zA-Z]+$/.test(data.letter)) {
+    var temp = gameWord.showWord();
+    gameWord.answerCheck(checkable);
+    if (temp ===gameWord.showWord() {
+      console.log("\nSorry, wrong letter, please choose another\n");
+      counter++;
+      console.log(((9 - counter) + "guesses remaining"));
+      promptUser();
+    })
+  }
+}
+
+
+
+
+
+
+
+
+
+startGame();
