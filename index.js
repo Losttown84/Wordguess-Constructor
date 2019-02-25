@@ -65,6 +65,7 @@ function guessRight() {
   if(chooseWord.replace(/ /g,"") == (gameWord.show))
 }
 
-
-
 startGame();
+
+// not getting the game to start, there's some curly bois making my code go wrong
+// think letter and word files are working correctly, so issue lies in index file
