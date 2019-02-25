@@ -56,7 +56,7 @@ function answerCheck(data) {
     }
     else {
       guessRight();
-    })
+    }
   }
 }
 
@@ -64,12 +64,6 @@ function guessRight() {
   console.log("\nCorrect guess!\n");
   if(chooseWord.replace(/ /g,"") == (gameWord.show))
 }
-
-
-
-
-
-
 
 
 
