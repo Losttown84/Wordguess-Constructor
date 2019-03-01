@@ -14,17 +14,28 @@ function startGame(){
   select = Math.floor(Math.random() * creekList.length);
   chooseWord = creekList[select];
   gameWord = new Word(chooseWord);
-  gameWord.makeWord();
+  gameWord.createLetters();
   if (select > -1) {
     creekList.splice(select, 1);
   }
   console.log("\nYou have 9 chances to guess the Schitt's Creek character")
-  promptUser();
+  userPrompt();
+}
+
+function displayGameWord(){
+  var displayWord = "";
+  for(var i = 0; i < gameWord.letters.length; i++) {
+    // console.log(gameWord.letters[i].characterReturn())
+    displayWord+=gameWord.letters[i].characterReturn()
+  }
+console.log(displayWord);
 }
 
 function userPrompt() {
+  // console.log(gameWord.letters)
+  displayGameWord()
   if (counter < 9) {
-      console.log(gameWord.showWord());
+      // console.log(gameWord.nameGuess());
       inquirer.prompt ([
         {
           type: "input",
@@ -46,23 +57,27 @@ function userPrompt() {
 
 function answerCheck(data) {
   if ((data.letter.length === 1) && /^[a-zA-Z]+$/.test(data.letter)) {
-    var temp = gameWord.showWord();
-    gameWord.answerCheck(checkable);
-    if (temp ===gameWord.showWord() {
-      console.log("\nSorry, wrong letter, please choose another\n");
-      counter++;
-      console.log(((9 - counter) + "guesses remaining"));
+    // var temp = gameWord.rightName();
+    // gameWord.nameCheck(data);
+    // console.log("gameword", gameWord)
+    gameWord.nameGuess (data.letter)
+    // if (temp === gameWord.showWord()) {
+    //   console.log("\nSorry, wrong letter, please choose another\n");
+    //   counter++;
+    //   console.log(((9 - counter) + "guesses remaining"));
       userPrompt();
-    }
-    else {
-      guessRight();
-    }
+    // }
+    // else {
+    //   guessRight();
+    // }
   }
 }
 
 function guessRight() {
   console.log("\nCorrect guess!\n");
-  if(chooseWord.replace(/ /g,"") == (gameWord.show))
+  if(chooseWord.replace(/ /g,"") == (gameWord.show)) {
+
+  }
 }
 
 startGame();

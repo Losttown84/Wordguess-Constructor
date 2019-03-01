@@ -1,17 +1,19 @@
 function Let(letter) {
-  this.letter = letter.toUpper();
+  this.letter = letter.toUpperCase();
   this.guessedCorrect = false;
 
   this.characterReturn = function(){
     if (this.guessedCorrect) {
       return this.letter;
     } else {
-      return "_";
+      return "_ ";
     };
   };
 
   this.check = function(guess) {
-    if (this.letter.toLower() == guess.toLower()) {
+    // console.log("guess", guess);
+    if (this.letter.toLowerCase() == guess.toLowerCase()) {
+      console.log("We Found A Match");
       this.guessedCorrect = true;
     } else {
 
